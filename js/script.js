@@ -66,3 +66,25 @@ for (let i = 0; i < team.length; i++) {
     cardText.append(staffRole);
 
 }
+
+const button = document.getElementById('addMemberButton');
+
+const newMembers = {
+  
+};
+
+button.addEventListener('click', function () {
+
+const inputName = document.getElementById('name').value;
+const inputRole = document.getElementById('role').value;
+const inputImage = document.getElementById('image').value;
+
+newMembers.name = inputName;
+newMembers.role = inputRole;
+newMembers.image = inputImage;
+
+team.push(newMembers);
+
+})
+
+
