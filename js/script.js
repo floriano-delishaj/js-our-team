@@ -1,3 +1,36 @@
+function createCard(i) {
+  // creazione del div "team-card"
+  const cardElement = document.createElement('div');
+  cardElement.className = 'team-card';
+  container.append(cardElement);
+
+  //creazione del div "card-image"
+  const cardImageBox = document.createElement('div');
+  cardImageBox.className = 'card-image';
+  cardElement.append(cardImageBox);
+
+  //creazione del tag img da inserire all'interno di "card-image"
+  const cardImage = document.createElement('img');
+  cardImageBox.append(cardImage);
+  cardImage.src = team[i].image;
+
+  // creazione del div "card-text"
+  const cardText = document.createElement('div');
+  cardText.className = 'card-text';
+  cardElement.append(cardText);
+
+  //creazione del tag h3 da inserire all'interno di "card-text"
+  const staffName = document.createElement('h3');
+  staffName.innerHTML = team[i].name;
+  cardText.append(staffName);
+
+  //creazione del tag p da inserire all'interno di "card-text"
+  const staffRole = document.createElement('p');
+  staffRole.innerHTML = team[i].role;
+  cardText.append(staffRole);
+}
+
+
 const team = [
     {
       name: 'Wayne Barnett',
@@ -35,35 +68,7 @@ const container = document.querySelector('.team-container');
 
 for (let i = 0; i < team.length; i++) {
 
-    // creazione del div "team-card"
-    const cardElement = document.createElement('div');
-    cardElement.className = 'team-card';
-    container.append(cardElement);
-
-    //creazione del div "card-image"
-    const cardImageBox = document.createElement('div');
-    cardImageBox.className = 'card-image';
-    cardElement.append(cardImageBox);
-
-    //creazione del tag img da inserire all'interno di "card-image"
-    const cardImage = document.createElement('img');
-    cardImageBox.append(cardImage);
-    cardImage.src = team[i].image;
-
-    // creazione del div "card-text"
-    const cardText = document.createElement('div');
-    cardText.className = 'card-text';
-    cardElement.append(cardText);
-
-    //creazione del tag h3 da inserire all'interno di "card-text"
-    const staffName = document.createElement('h3');
-    staffName.innerHTML = team[i].name;
-    cardText.append(staffName);
-
-    //creazione del tag p da inserire all'interno di "card-text"
-    const staffRole = document.createElement('p');
-    staffRole.innerHTML = team[i].role;
-    cardText.append(staffRole);
+  createCard(i);
 
 }
 
@@ -84,6 +89,8 @@ newMembers.role = inputRole;
 newMembers.image = inputImage;
 
 team.push(newMembers);
+
+createCard(team.length - 1)
 
 })
 
